@@ -1,8 +1,10 @@
-export default function Layout() {
+import Navigation from "../navigation/Navigation";
 
-    return (
-      <>
- hola mundo
-      </>
-    );
-  }
+export default function Layout({ children }) {
+  return (
+    <>
+      <Navigation />
+      {children}
+    </>
+  );
+}
