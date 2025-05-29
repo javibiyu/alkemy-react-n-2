@@ -1,3 +1,4 @@
+import { capitalize } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -21,7 +22,7 @@ const User = ({ user }) => {
             component="h2"
             className="text-2xl font-bold mb-2"
           >
-            {user.name.firstname} {user.name.lastname}
+            {capitalize(user.name.firstname)} {capitalize(user.name.lastname)}
           </Typography>
           <Typography variant="body2">
             <span className="font-semibold">Email:</span> {user.email}
@@ -37,8 +38,8 @@ const User = ({ user }) => {
             className="text-gray-500 text-sm"
             sx={{ mb: 0 }}
           >
-            {user.address.street} {user.address.number}, {user.address.city},{" "}
-            {user.address.zipcode}
+            {capitalize(user.address.street)} {user.address.number},{" "}
+            {capitalize(user.address.city)}, {user.address.zipcode}
           </Typography>
         </CardContent>
       </Card>
