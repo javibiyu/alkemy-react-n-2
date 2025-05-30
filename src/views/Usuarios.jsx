@@ -1,9 +1,9 @@
-import useUsuariosApi from "../api/UsuariosApi";
+import UsuariosApi from "../api/UsuariosApi";
 import User from "../components/users/User";
 import { Box, Container, Grid } from "@mui/material";
 
 export default function Usuarios() {
-  const { usuarios, loading, error } = useUsuariosApi();
+  const { usuarios, loading, error } = UsuariosApi();
   return (
     <Container fixed>
       {loading && <p>Cargando usuarios...</p>}
