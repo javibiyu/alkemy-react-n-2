@@ -9,10 +9,11 @@ export default function Usuarios() {
     <Container fixed>
       {loading && <p>Cargando usuarios...</p>}
       {error && <p>Error al cargar usuarios: {error.message}</p>}
-      <Box sx={{ mt: 2, mb: 2 }}>
-        <Filtro />
-      </Box>
-      <Divider />
+      {!loading && !error && (
+        <Box sx={{ mt: 2, mb: 2 }}>
+          <Filtro />
+        </Box>
+      )}
       <Box lg={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {usuarios.map((user) => (
