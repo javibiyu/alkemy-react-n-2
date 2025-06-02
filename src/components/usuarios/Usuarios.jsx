@@ -1,6 +1,7 @@
-import UsuariosApi from "../api/UsuariosApi";
-import User from "../components/users/User";
-import { Box, Container, Grid } from "@mui/material";
+import UsuariosApi from "../../api/UsuariosApi";
+import Filtro from "../filtro/filtro";
+import User from "./User";
+import { Box, Container, Divider, Grid } from "@mui/material";
 
 export default function Usuarios() {
   const { usuarios, loading, error } = UsuariosApi();
@@ -8,6 +9,10 @@ export default function Usuarios() {
     <Container fixed>
       {loading && <p>Cargando usuarios...</p>}
       {error && <p>Error al cargar usuarios: {error.message}</p>}
+      <Box sx={{ mt: 2, mb: 2 }}>
+        <Filtro />
+      </Box>
+      <Divider />
       <Box lg={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {usuarios.map((user) => (

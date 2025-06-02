@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Usuarios from "../../views/Usuarios";
-import Productos from "../../views/Productos";
-import Inicio from "../../views/Inicio";
 import Footer from "../footer/Footer";
 import Layout from "../layouts/Layout";
+import Usuarios from "../usuarios/Usuarios";
+import Productos from "../productos/Productos";
+import Inicio from "../inicio/Inicio";
 
 export default function MainRout() {
   return (

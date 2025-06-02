@@ -1,6 +1,7 @@
 import { Box, Grid, Container } from "@mui/material";
-import ProductosApi from "../api/ProductosApi";
-import Product from "../components/products/Product";
+
+import ProductosApi from "../../api/ProductosApi";
+import Product from "./Product";
 
 const Productos = () => {
   const { productos, loading, error } = ProductosApi();
