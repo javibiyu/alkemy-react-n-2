@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../constantes/urls";
 
 export default function UsuariosApi() {
   const [usuarios, setUsuarios] = useState([]);
@@ -8,7 +9,7 @@ export default function UsuariosApi() {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/users")
+      .get(`${BASE_URL}/users`)
       .then((response) => {
         setUsuarios(response.data);
         setLoading(false);

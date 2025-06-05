@@ -1,4 +1,11 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Producto({ product }) {
   return (
@@ -31,9 +38,17 @@ export default function Producto({ product }) {
           image={product.image}
           title={product.title}
         />
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
+        <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
           {product.description}
         </Typography>
+        <Button
+          component={Link}
+          to={`/producto/${product.id}`} // Ruta dinámica con el id del producto
+          variant="contained"
+          color="primary"
+        >
+          Ver Detalle
+        </Button>
       </CardContent>
     </Card>
   );
