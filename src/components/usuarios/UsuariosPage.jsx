@@ -3,7 +3,7 @@ import Filtro from "../filtro/filtro";
 import User from "./usuario/Ususario";
 import { Box, Container, Grid } from "@mui/material";
 
-export default function Usuarios() {
+export default function UsuariosPage() {
   const { usuarios, loading, error } = UsuariosApi();
   return (
     <Container fixed>

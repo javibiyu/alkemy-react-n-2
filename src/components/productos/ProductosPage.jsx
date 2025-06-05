@@ -4,7 +4,7 @@ import ProductosApi from "../../api/ProductosApi";
 import Producto from "./producto/Producto";
 import Filtro from "../filtro/filtro";
 
-const Productos = () => {
+export default function ProductosPage() {
   const { productos, loading, error } = ProductosApi();
   console.log("Productos:", productos);
   return (
@@ -27,6 +27,4 @@ const Productos = () => {
       </Box>
     </Container>
   );
-};
-
-export default Productos;
+}

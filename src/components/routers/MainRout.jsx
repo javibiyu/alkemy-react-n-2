@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "../footer/Footer";
 import Layout from "../layouts/Layout";
-import Usuarios from "../usuarios/Usuarios";
-import Productos from "../productos/Productos";
+import UsuariosPage from "../usuarios/UsuariosPage";
+import ProductosPage from "../productos/ProductosPage";
 import Inicio from "../inicio/Inicio";
 
 export default function MainRout() {
@@ -11,8 +11,8 @@ export default function MainRout() {
       <Layout />
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/usuarios" element={<Usuarios />} />
-        <Route path="/productos" element={<Productos />} />
+        <Route path="/usuarios" element={<UsuariosPage />} />
+        <Route path="/productos" element={<ProductosPage />} />
       </Routes>
       <Footer />
     </Router>
