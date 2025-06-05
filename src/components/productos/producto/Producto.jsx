@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
-export default function Product({ product }) {
+export default function Producto({ product }) {
   return (
     <Card>
       <CardContent>

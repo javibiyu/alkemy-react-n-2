@@ -1,7 +1,7 @@
 import { Box, Grid, Container } from "@mui/material";
 
 import ProductosApi from "../../api/ProductosApi";
-import Product from "./Product";
+import Producto from "./producto/Producto";
 import Filtro from "../filtro/filtro";
 
 const Productos = () => {
@@ -20,7 +20,7 @@ const Productos = () => {
         <Grid container spacing={2}>
           {productos.map((product) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={product.id}>
-              <Product product={product} />
+              <Producto product={product} />
             </Grid>
           ))}
         </Grid>

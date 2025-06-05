@@ -1,7 +1,7 @@
 import UsuariosApi from "../../api/UsuariosApi";
 import Filtro from "../filtro/filtro";
-import User from "./User";
-import { Box, Container, Divider, Grid } from "@mui/material";
+import User from "./usuario/Ususario";
+import { Box, Container, Grid } from "@mui/material";
 
 export default function Usuarios() {
   const { usuarios, loading, error } = UsuariosApi();
