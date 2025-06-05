@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout";
 import UsuariosPage from "../usuarios/UsuariosPage";
 import ProductosPage from "../productos/ProductosPage";
 import Inicio from "../inicio/Inicio";
+import NotFound from "../notfound/NotFound";
 
 export default function MainRout() {
   return (
@@ -13,6 +14,7 @@ export default function MainRout() {
         <Route path="/" element={<Inicio />} />
         <Route path="/usuarios" element={<UsuariosPage />} />
         <Route path="/productos" element={<ProductosPage />} />
+        <Route path="*" element={<NotFound />} /> {/* Ruta para el error 404 */}
       </Routes>
       <Footer />
     </Router>
