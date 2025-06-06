@@ -7,14 +7,21 @@ import {
   CircularProgress,
   Button,
 } from "@mui/material";
-import ProductosApi from "../../../api/ProductosApi";
+import useCrudApi from "../../../hooks/useCrudApi/useCrudApi";
+import { BASE_URL } from "../../../constantes/urls";
+import Loading from "../../loading/Loading";
 
 export default function ProductoDetalle() {
   const { id } = useParams(); // Obtener el parámetro dinámico de la URL
   const navigate = useNavigate(); // Hook para navegar entre rutas
-  const { productos, loading, error } = ProductosApi(id);
 
-  if (loading) return <CircularProgress />;
+  const {
+    data: productos,
+    loading,
+    error,
+  } = useCrudApi(`${BASE_URL}/products/${id}`);
+
+  if (loading) return <Loading />;
   if (error)
     return <Typography color="error">Error: {error.message}</Typography>;
 
