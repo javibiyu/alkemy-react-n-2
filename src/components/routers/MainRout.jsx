@@ -6,6 +6,7 @@ import ProductosPage from "../productos/ProductosPage";
 import Inicio from "../inicio/Inicio";
 import NotFound from "../notfound/NotFound";
 import ProductoDetalle from "../productos/productoDetalle/ProductoDetalle";
+import AgregarProducto from "../productos/agregarProducto/AgregarProducto";
 
 export default function MainRout() {
   return (
@@ -16,6 +17,7 @@ export default function MainRout() {
         <Route path="/usuarios" element={<UsuariosPage />} />
         <Route path="/productos" element={<ProductosPage />} />
         <Route path="/producto/:id" element={<ProductoDetalle />} />{" "}
+        <Route path="/nuevoproducto" element={<AgregarProducto />} />{" "}
         {/* Ruta dinámica */}
         <Route path="*" element={<NotFound />} /> {/* Ruta para el error 404 */}
       </Routes>

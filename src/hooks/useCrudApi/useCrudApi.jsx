@@ -7,6 +7,11 @@ export default function useCrudApi(url, method = "GET", body = null) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!url) {
+      setLoading(false);
+      return;
+    }
+
     const fetchData = async () => {
       setLoading(true);
       setError(null);
@@ -17,9 +22,7 @@ export default function useCrudApi(url, method = "GET", body = null) {
           url,
           ...(body && { data: body }),
         };
-
         const response = await axios(config);
-
         setData(response.data);
       } catch (err) {
         setError(err);
