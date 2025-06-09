@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import { TextField, Button, Box, Typography } from "@mui/material";
-
+import { IMaskInput } from "react-imask";
+import { NumericFormat } from "react-number-format";
 import Loading from "../../loading/Loading";
 import { BASE_URL } from "../../../constantes/urls";
 import useCrudApi from "../../../hooks/useCrudApi/useCrudApi";
 
+const initialProducto = {
+  id: 0,
+  title: "",
+  price: 0.1,
+  description: "",
+  category: "",
+  image: "https://i.blogs.es/f7234d/imagen/1200_800.webp",
+};
+
 export default function AgregarProducto({ productos }) {
-  const [producto, setProducto] = useState({
-    id: 0,
-    title: "",
-    price: 0.1,
-    description: "",
-    category: "",
-    image: "http://example.com",
-  });
+  const [producto, setProducto] = useState({});
 
   const [submit, setSubmit] = useState(false);
   const [url, setUrl] = useState(null);
@@ -40,15 +43,19 @@ export default function AgregarProducto({ productos }) {
     e.preventDefault();
     setSubmit(true);
   };
-
-  if (loading) return <Loading />;
-  if (error)
-    return <Typography color="error">Error: {error.message}</Typography>;
-  if (data) {
-    // Agregar el nuevo producto a la lista de productos
-    productos.push(data);
-    console.log("Producto agregado:", productos);
+  useEffect(() => {
+    if (data) {
+      productos(data);
+      console.log("Producto agregado:", data);
+    }
+  }, [data]);
+  if (loading) {
+    return <Loading />;
   }
+  if (error) {
+    return <Typography color="error">Error: {error.message}</Typography>;
+  }
+
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
       <Typography variant="h6" gutterBottom>
@@ -61,15 +68,23 @@ export default function AgregarProducto({ productos }) {
         onChange={handleChange}
         fullWidth
         margin="normal"
+        placeholder="Ingrese el título del producto"
+        required
       />
-      <TextField
+
+      <NumericFormat
         label="Precio"
         name="price"
-        type="number"
         value={producto.price}
         onChange={handleChange}
-        fullWidth
+        customInput={TextField}
+        placeholder="Ingrese el precio del producto"
+        thousandSeparator
+        valueIsNumericString
+        prefix="$"
         margin="normal"
+        fullWidth
+        required
       />
       <TextField
         label="Descripción"
@@ -78,6 +93,8 @@ export default function AgregarProducto({ productos }) {
         onChange={handleChange}
         fullWidth
         margin="normal"
+        placeholder="Ingrese una descripción del producto"
+        required
       />
       <TextField
         label="Categoría"
@@ -86,6 +103,8 @@ export default function AgregarProducto({ productos }) {
         onChange={handleChange}
         fullWidth
         margin="normal"
+        placeholder="Ingrese la categoría del producto"
+        required
       />
       <TextField
         label="Imagen (URL)"
@@ -94,6 +113,8 @@ export default function AgregarProducto({ productos }) {
         onChange={handleChange}
         fullWidth
         margin="normal"
+        placeholder="Ingrese la URL de la imagen del producto"
+        required
       />
       <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
         Agregar Producto

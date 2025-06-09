@@ -11,7 +11,6 @@ import Loading from "../loading/Loading";
 export default function ProductosPage() {
   const [mostrarAgregar, setMostrarAgregar] = useState(false);
   const [products, setProducts] = useState([]);
-
   const {
     data: productos,
     loading,
@@ -22,11 +21,15 @@ export default function ProductosPage() {
     setProducts(productos);
   }, [productos]);
 
-  console.log("productos", productos);
-  if (loading) return <Loading />;
-  if (error)
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
     return <Typography color="error">Error: {error.message}</Typography>;
-
+  }
+  const addProduct = (prouct) => {
+    setProducts((prevProducts) => [...prevProducts, prouct]);
+  };
   return (
     <Container fixed>
       <>
@@ -47,7 +50,7 @@ export default function ProductosPage() {
         </Box>
         {mostrarAgregar && (
           <Box sx={{ mb: 4 }}>
-            <AgregarProducto productos={products} />
+            <AgregarProducto productos={addProduct} />
           </Box>
         )}
         {/* fin agregar producto */}
