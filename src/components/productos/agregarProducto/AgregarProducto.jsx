@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { TextField, Button, Box, Typography } from "@mui/material";
-import { IMaskInput } from "react-imask";
 import { NumericFormat } from "react-number-format";
 import Loading from "../../loading/Loading";
 import { BASE_URL } from "../../../constantes/urls";
@@ -79,7 +78,7 @@ export default function AgregarProducto({ productos }) {
         onChange={handleChange}
         customInput={TextField}
         placeholder="Ingrese el precio del producto"
-        thousandSeparator
+        decimalSeparator=","
         valueIsNumericString
         prefix="$"
         margin="normal"
