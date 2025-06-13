@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import { NavLink } from "react-router-dom";
 
-const Navigation = () => {
+const Navbar = () => {
   return (
     <PopupState variant="popover" popupId="popup-menu">
       {(popupState) => (
@@ -37,4 +37,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Navbar;

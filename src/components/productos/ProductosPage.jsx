@@ -6,7 +6,7 @@ import Filtro from "../filtro/filtro";
 import AgregarProducto from "./agregarProducto/AgregarProducto";
 import useCrudApi from "../../hooks/useCrudApi/useCrudApi";
 import { BASE_URL } from "../../constantes/urls";
-import Loading from "../loading/Loading";
+import Loading from "../ui/loading/Loading";
 
 export default function ProductosPage() {
   const [mostrarAgregar, setMostrarAgregar] = useState(false);

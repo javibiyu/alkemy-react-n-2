@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { TextField, Button, Box, Typography } from "@mui/material";
 import { NumericFormat } from "react-number-format";
-import Loading from "../../loading/Loading";
+import Loading from "../../ui/loading/Loading";
 import { BASE_URL } from "../../../constantes/urls";
 import useCrudApi from "../../../hooks/useCrudApi/useCrudApi";
 

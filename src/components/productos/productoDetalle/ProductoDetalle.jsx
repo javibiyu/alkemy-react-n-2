@@ -4,12 +4,11 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  CircularProgress,
   Button,
 } from "@mui/material";
 import useCrudApi from "../../../hooks/useCrudApi/useCrudApi";
 import { BASE_URL } from "../../../constantes/urls";
-import Loading from "../../loading/Loading";
+import Loading from "../../ui/loading/Loading";
 
 export default function ProductoDetalle() {
   const { id } = useParams(); // Obtener el parámetro dinámico de la URL

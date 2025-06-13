@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Footer from "../footer/Footer";
-import Layout from "../layouts/Layout";
+
 import UsuariosPage from "../usuarios/UsuariosPage";
 import ProductosPage from "../productos/ProductosPage";
 import Inicio from "../inicio/Inicio";
 import NotFound from "../notfound/NotFound";
 import ProductoDetalle from "../productos/productoDetalle/ProductoDetalle";
 import AgregarProducto from "../productos/agregarProducto/AgregarProducto";
+import Layout from "../ui/layouts/Layout";
 
 export default function MainRout() {
   return (
@@ -21,7 +21,6 @@ export default function MainRout() {
         {/* Ruta dinámica */}
         <Route path="*" element={<NotFound />} /> {/* Ruta para el error 404 */}
       </Routes>
-      <Footer />
     </Router>
   );
 }
