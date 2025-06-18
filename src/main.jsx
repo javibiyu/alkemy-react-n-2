@@ -8,6 +8,7 @@ import {
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, ThemeContext } from "./context/ThemeContext.jsx";
 import "./index.css";
+import "./globalBodyMargin.css";
 
 function ThemedApp() {
   const { theme } = React.useContext(ThemeContext);
