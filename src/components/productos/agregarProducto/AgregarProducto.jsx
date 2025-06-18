@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TextField, Button, Box, Typography } from "@mui/material";
+import { TextField, Button, Box, Typography, Snackbar, Alert } from "@mui/material";
 import { NumericFormat } from "react-number-format";
 import Loading from "../../ui/loading/Loading";
 import { BASE_URL } from "../../../constantes/urls";
@@ -21,6 +21,7 @@ export default function AgregarProducto({ productos }) {
   const [url, setUrl] = useState(null);
   const [method, setMethod] = useState(null);
   const [body, setBody] = useState(null);
+  const [notification, setNotification] = useState({ open: false, message: "", severity: "success" });
 
   const { data, loading, error } = useCrudApi(url, method, body);
 
@@ -45,6 +46,7 @@ export default function AgregarProducto({ productos }) {
   useEffect(() => {
     if (data) {
       productos(data);
+      setNotification({ open: true, message: "Producto agregado exitosamente", severity: "success" });
       console.log("Producto agregado:", data);
     }
   }, [data]);
@@ -118,6 +120,20 @@ export default function AgregarProducto({ productos }) {
       <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
         Agregar Producto
       </Button>
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={3000}
+        onClose={() => setNotification({ ...notification, open: false })}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setNotification({ ...notification, open: false })}
+          severity={notification.severity}
+          sx={{ width: "100%" }}
+        >
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }
