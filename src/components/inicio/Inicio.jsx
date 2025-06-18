@@ -73,7 +73,7 @@ const Inicio = () => {
           }}
         />
         <img
-          src="https://images.unsplash.com/photo-1469398715555-76331a6c7fa0?auto=format&fit=crop&w=200&q=80"
+          src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=200&q=80"
           alt="Ropa 3"
           style={{
             width: 140,
@@ -82,6 +82,7 @@ const Inicio = () => {
             borderRadius: 8,
             background: cardBg,
             border,
+            objectPosition: "top center", // Arregla el encuadre de la imagen
           }}
         />
       </div>

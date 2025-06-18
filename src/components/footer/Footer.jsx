@@ -43,13 +43,31 @@ const Navbar = () => {
               {...bindMenu(popupState)}
               PaperProps={{ sx: { backgroundColor: "#212121" } }}
             >
-              <MenuItem onClick={popupState.close} component={NavLink} to="/">
+              <MenuItem
+                onClick={popupState.close}
+                component={NavLink}
+                to="/"
+                sx={{
+                  color: theme === "dark" ? "#fafafa" : "#212121",
+                  "&.Mui-selected, &:hover": {
+                    backgroundColor: theme === "dark" ? "#333" : "#e3e3e3",
+                    color: theme === "dark" ? "#ffd600" : "#1976d2",
+                  },
+                }}
+              >
                 Inicio
               </MenuItem>
               <MenuItem
                 onClick={popupState.close}
                 component={NavLink}
                 to="/productos"
+                sx={{
+                  color: theme === "dark" ? "#fafafa" : "#212121",
+                  "&.Mui-selected, &:hover": {
+                    backgroundColor: theme === "dark" ? "#333" : "#e3e3e3",
+                    color: theme === "dark" ? "#ffd600" : "#1976d2",
+                  },
+                }}
               >
                 Productos
               </MenuItem>
@@ -57,6 +75,13 @@ const Navbar = () => {
                 onClick={popupState.close}
                 component={NavLink}
                 to="/usuarios"
+                sx={{
+                  color: theme === "dark" ? "#fafafa" : "#212121",
+                  "&.Mui-selected, &:hover": {
+                    backgroundColor: theme === "dark" ? "#333" : "#e3e3e3",
+                    color: theme === "dark" ? "#ffd600" : "#1976d2",
+                  },
+                }}
               >
                 Usuarios
               </MenuItem>
@@ -83,19 +108,5 @@ const Navbar = () => {
     </>
   );
 };
-
-const Footer = () => (
-  <footer
-    style={{
-      background: "#212121",
-      color: "#fafafa",
-      textAlign: "center",
-      padding: "16px 0",
-      width: "100%",
-    }}
-  >
-    {/* ...contenido del footer... */}
-  </footer>
-);
 
 export default Navbar;

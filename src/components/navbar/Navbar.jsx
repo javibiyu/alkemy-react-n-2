@@ -48,7 +48,11 @@ const Navbar = () => {
               </Button>
               <Menu
                 {...bindMenu(popupState)}
-                PaperProps={{ sx: { backgroundColor: "#212121" } }}
+                PaperProps={{
+                  sx: {
+                    backgroundColor: theme === "dark" ? "#212121" : "#f5f5f5",
+                  },
+                }}
               >
                 <MenuItem
                   onClick={popupState.close}
@@ -56,6 +60,7 @@ const Navbar = () => {
                   to="/"
                   sx={{
                     color: theme === "dark" ? "#fafafa" : "#212121",
+                    backgroundColor: theme === "dark" ? undefined : "#f5f5f5",
                     "&.Mui-selected, &:hover": {
                       backgroundColor: theme === "dark" ? "#333" : "#e3e3e3",
                       color: theme === "dark" ? "#ffd600" : "#1976d2",
@@ -70,6 +75,7 @@ const Navbar = () => {
                   to="/productos"
                   sx={{
                     color: theme === "dark" ? "#fafafa" : "#212121",
+                    backgroundColor: theme === "dark" ? undefined : "#f5f5f5",
                     "&.Mui-selected, &:hover": {
                       backgroundColor: theme === "dark" ? "#333" : "#e3e3e3",
                       color: theme === "dark" ? "#ffd600" : "#1976d2",
@@ -84,6 +90,7 @@ const Navbar = () => {
                   to="/usuarios"
                   sx={{
                     color: theme === "dark" ? "#fafafa" : "#212121",
+                    backgroundColor: theme === "dark" ? undefined : "#f5f5f5",
                     "&.Mui-selected, &:hover": {
                       backgroundColor: theme === "dark" ? "#333" : "#e3e3e3",
                       color: theme === "dark" ? "#ffd600" : "#1976d2",
