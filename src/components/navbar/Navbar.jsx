@@ -99,6 +99,21 @@ const Navbar = () => {
                 >
                   Usuarios
                 </MenuItem>
+                <MenuItem
+                  onClick={popupState.close}
+                  component={NavLink}
+                  to="/dashboard"
+                  sx={{
+                    color: theme === "dark" ? "#fafafa" : "#212121",
+                    backgroundColor: theme === "dark" ? undefined : "#f5f5f5",
+                    "&.Mui-selected, &:hover": {
+                      backgroundColor: theme === "dark" ? "#333" : "#e3e3e3",
+                      color: theme === "dark" ? "#ffd600" : "#1976d2",
+                    },
+                  }}
+                >
+                  Dashboard
+                </MenuItem>
               </Menu>
             </>
           )}

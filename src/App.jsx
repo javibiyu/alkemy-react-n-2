@@ -1,4 +1,4 @@
-import MainRout from "./components/routers/MainRout";
+import MainRout from "./components/routes/MainRout";
 import "./index.css";
 function App() {
   return (
