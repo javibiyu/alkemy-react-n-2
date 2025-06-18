@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { TextField, Button, Box, Typography, Snackbar, Alert } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Box,
+  Typography,
+  Snackbar,
+  Alert,
+} from "@mui/material";
 import { NumericFormat } from "react-number-format";
 import Loading from "../../ui/loading/Loading";
 import { BASE_URL } from "../../../constantes/urls";
@@ -8,20 +15,24 @@ import useCrudApi from "../../../hooks/useCrudApi/useCrudApi";
 const initialProducto = {
   id: 0,
   title: "",
-  price: 0.1,
+  price: 0,
   description: "",
   category: "",
-  image: "https://i.blogs.es/f7234d/imagen/1200_800.webp",
+  image: "",
 };
 
 export default function AgregarProducto({ productos }) {
-  const [producto, setProducto] = useState({});
+  const [producto, setProducto] = useState(initialProducto);
 
   const [submit, setSubmit] = useState(false);
   const [url, setUrl] = useState(null);
   const [method, setMethod] = useState(null);
   const [body, setBody] = useState(null);
-  const [notification, setNotification] = useState({ open: false, message: "", severity: "success" });
+  const [notification, setNotification] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
 
   const { data, loading, error } = useCrudApi(url, method, body);
 
@@ -46,7 +57,12 @@ export default function AgregarProducto({ productos }) {
   useEffect(() => {
     if (data) {
       productos(data);
-      setNotification({ open: true, message: "Producto agregado exitosamente", severity: "success" });
+      setNotification({
+        open: true,
+        message: "Producto agregado exitosamente",
+        severity: "success",
+      });
+      setProducto(initialProducto); // Reiniciar campos después de agregar
       console.log("Producto agregado:", data);
     }
   }, [data]);
