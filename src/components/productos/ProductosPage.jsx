@@ -11,6 +11,7 @@ import Loading from "../ui/loading/Loading";
 export default function ProductosPage() {
   const [mostrarAgregar, setMostrarAgregar] = useState(false);
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const {
     data: productos,
     loading,
@@ -19,22 +20,30 @@ export default function ProductosPage() {
 
   useEffect(() => {
     setProducts(productos);
+    setFilteredProducts(productos); // Inicializa filtrados con todos los productos
   }, [productos]);
 
   if (loading) {
     return <Loading />;
   }
+
   if (error) {
     return <Typography color="error">Error: {error.message}</Typography>;
   }
+
   const addProduct = (prouct) => {
     setProducts((prevProducts) => [...prevProducts, prouct]);
   };
+
   return (
     <Container fixed>
       <>
         <Box sx={{ mt: 2, mb: 2 }}>
-          <Filtro />
+          <Filtro
+            colection={products}
+            field={"title"}
+            onFiltrar={setFilteredProducts} // Pasa la función para actualizar filtrados
+          />
         </Box>
 
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
@@ -56,8 +65,14 @@ export default function ProductosPage() {
         {/* fin agregar producto */}
         <Box lg={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
-            {products &&
-              products.map((product) => (
+            {filteredProducts && filteredProducts.length === 0 && (
+              <Grid item xs={12}>
+                <Typography>No se encontraron productos.</Typography>
+              </Grid>
+            )}
+            {filteredProducts &&
+              filteredProducts.length > 0 &&
+              filteredProducts.map((product) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={product.id}>
                   <Producto product={product} />
                 </Grid>

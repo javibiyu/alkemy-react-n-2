@@ -1,12 +1,12 @@
 import { TextField } from "@mui/material";
 
-export default function Filtro({ colection, field }) {
+export default function Filtro({ colection, field, onFiltrar }) {
   const handleChange = (event) => {
     const value = event.target.value;
     const filtrados = colection?.filter((item) => {
       return item[field]?.toLowerCase().includes(value.toLowerCase());
     });
-    console.log(filtrados);
+    onFiltrar(filtrados); // Llama a la función pasada por props
   };
 
   return (
