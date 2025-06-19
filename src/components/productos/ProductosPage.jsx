@@ -34,7 +34,7 @@ export default function ProductosPage() {
     <Container fixed>
       <>
         <Box sx={{ mt: 2, mb: 2 }}>
-          <Filtro />
+          <Filtro colection={products} field={"title"} />
         </Box>
 
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
