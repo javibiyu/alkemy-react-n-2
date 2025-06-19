@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
-git import ProductosPage from "../../components/productos/ProductosPage";
+import ProductosPage from "../../components/productos/ProductosPage";
 
 // Mock de componentes hijos
 jest.mock("./agregarProducto/AgregarProducto", () => ({ productos }) => (
